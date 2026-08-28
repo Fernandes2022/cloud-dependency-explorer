@@ -203,3 +203,5 @@ Never commit actual credentials to source control.
 - AWS resource discovery
 - Kubernetes resource discovery
 - Role-based access control
+
+## Deployment
