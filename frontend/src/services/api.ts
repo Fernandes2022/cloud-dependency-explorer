@@ -2,8 +2,10 @@ import axios from "axios";
 import type { Service, ImpactResult } from "../types";
 
 const api = axios.create({
-  baseURL: "http://localhost:3000/api",
+  baseURL: import.meta.env.VITE_API_URL,
 });
+
+
 
 export async function fetchServices(): Promise<Service[]> {
   const response = await api.get<{ data: Service[] }>("/services");

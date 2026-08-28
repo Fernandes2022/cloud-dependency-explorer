@@ -205,4 +205,38 @@ Never commit actual credentials to source control.
 - Role-based access control
 
 ## Deployment
-- Render
+
+The frontend is deployed as a Vite static application on Vercel.
+
+The backend is containerized with Docker and published to GitHub
+Container Registry (GHCR).
+
+GitHub Actions automates the CI/CD pipeline:
+
+1. Install dependencies
+2. Build the backend
+3. Build the Docker image
+4. Push the image to GHCR
+5. Trigger a Render deployment
+
+The backend runs on Render and connects securely to CognoDB using
+environment variables.
+
+### Deployment Architecture
+
+GitHub
+  |
+  v
+GitHub Actions
+  |
+  +--> Docker Build
+  |
+  +--> GHCR
+  |
+  +--> Render
+          |
+          v
+       CognoDB
+
+Frontend:
+Vercel → Render API → CognoDB
