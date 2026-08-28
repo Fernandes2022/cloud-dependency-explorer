@@ -205,3 +205,4 @@ Never commit actual credentials to source control.
 - Role-based access control
 
 ## Deployment
+- Render
